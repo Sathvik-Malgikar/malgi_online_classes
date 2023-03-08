@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "459603802845",
+    "project_id": "malgi-online-classes",
+    "storage_bucket": "malgi-online-classes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459603802845:android:5b854466ac4abac8c97934",
+        "android_client_info": {
+          "package_name": "com.example.malgi_online_classes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459603802845-sb580tsi56flqmb5j7kk2olubgj2djuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHTz3nnQmbofAXHtdroXJRNP5d_lJSrmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459603802845-sb580tsi56flqmb5j7kk2olubgj2djuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "459603802845-iqncecls9mssi4h9qdtdk5quiddvrbt8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.malgiOnlineClasses"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459603802845:android:66f04271057466bdc97934",
+        "android_client_info": {
+          "package_name": "com.sathvik.malgi_online_classes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459603802845-sb580tsi56flqmb5j7kk2olubgj2djuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHTz3nnQmbofAXHtdroXJRNP5d_lJSrmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459603802845-sb580tsi56flqmb5j7kk2olubgj2djuk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "459603802845-iqncecls9mssi4h9qdtdk5quiddvrbt8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.malgiOnlineClasses"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
