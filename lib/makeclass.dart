@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import "package:http/http.dart" as http;
+import 'package:malgi_online_classes/buttons.dart';
+import 'package:malgi_online_classes/main.dart';
 
 void makeclass(ip, un, link) async {
   String url = ip + "api/makecls";
@@ -55,7 +57,7 @@ void addmalgicoins(ip, shnme, amt) async {
 class Makeclass extends StatefulWidget {
   Makeclass({required this.username, required this.ip, super.key});
 
-  String link = "http://google.com";
+  String link = "link not provided";
   String username;
   String shname = '';
   String ip;
@@ -106,9 +108,11 @@ class _MakeclassState extends State<Makeclass> {
 
   @override
   Widget build(BuildContext context) {
+    Widget btn = logoutbtn(context);
     return classrunning
         ? Wrap(
             children: [
+              btn,
               Text("Your class is running at ${widget.link}"),
               const Text("Add Malgi coins here:"),
               TextField(
@@ -149,6 +153,7 @@ class _MakeclassState extends State<Makeclass> {
             ],
           )
         : Wrap(children: [
+            btn,
             const Text("Start a class"),
             Container(
               decoration: BoxDecoration(

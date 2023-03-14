@@ -4,7 +4,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import "package:http/http.dart" as http;
+import 'package:malgi_online_classes/main.dart';
 import "linkblock.dart";
+import "buttons.dart";
 
 void actclass(ip, sub, listhandler) async {
   String query = "?sub=$sub";
@@ -69,9 +71,11 @@ class _JoinclassState extends State<Joinclass> {
 
   @override
   Widget build(BuildContext context) {
+    Widget btn = logoutbtn(context);
     return Wrap(
-      alignment: WrapAlignment.start,
+      alignment: WrapAlignment.center,
       children: [
+        btn,
         Container(
           padding: const EdgeInsets.all(30),
           child: Center(child: Text("you have ${widget.coins} Malgicoins !")),
@@ -79,9 +83,13 @@ class _JoinclassState extends State<Joinclass> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
-          
           children: [
-            Container(padding: const EdgeInsets.all(20) ,child: const Center(child: Text("Join a class"),),),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: const Center(
+                child: Text("Join a class"),
+              ),
+            ),
             DropdownButton(
                 value: sub,
                 icon: const Icon(Icons.arrow_downward),
@@ -97,13 +105,16 @@ class _JoinclassState extends State<Joinclass> {
                 label: const Text("Find"))
           ],
         ),
-        linklist.isEmpty? Container() : Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: Colors.amber),
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: linklist,
-            ))
+        linklist.isEmpty
+            ? Container()
+            : Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.amber),
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: linklist,
+                ))
       ],
     );
   }

@@ -8,18 +8,28 @@ import "package:fluttertoast/fluttertoast.dart";
 import "package:http/http.dart" as http;
 
 void regAsTchr(ip, un, pw, sub, cb) async {
-  // print("on press tchr");
+  
   String url = ip + "api/reg_as_tchr";
+  String msgt='msg not set';
+
+
+  if(un!=''&&pw!=''){
+
   var response = await http.post(Uri.parse(url),
       headers: {"Content-Type": "application/json"},
       body: json.encode({"username": un, "password": pw, "subject": sub}));
-  // print(response.body);
+  
 
-  String msgt = response.body == "already taken"
+  msgt = response.body == "already taken"
       ? "Incorrect password!"
       : response.body == "Success"
           ? "Successfully registered !"
           : "Something went wrong :(";
+
+
+  }else{
+    msgt = "Enter valid input";
+  }
 
   Fluttertoast.showToast(
       msg: msgt,
@@ -30,7 +40,7 @@ void regAsTchr(ip, un, pw, sub, cb) async {
       textColor: Colors.white,
       fontSize: 16.0);
 
-  if (response.body == "Success") cb();
+  if (msgt == "Successfully registered !") cb();
 }
 
 class Teacher extends StatefulWidget {

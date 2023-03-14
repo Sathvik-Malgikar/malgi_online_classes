@@ -8,18 +8,27 @@ import "package:http/http.dart" as http;
 import "joinclass.dart";
 
 void regAsStud(ip, un, pw, cb) async {
-  // print("on press stud");
+
   String url = ip + "api/reg_as_std";
+  String msgt='msg not set';
+  if(un!=''&&pw!=''){
+
   var response = await http.post(Uri.parse(url),
       headers: {"Content-Type": "application/json"},
       body: json.encode({"username": un, "password": pw}));
-  // print(response.body);
+  
 
-  String msgt = response.body == "already taken"
+  msgt = response.body == "already taken"
       ? "Incorrect Password!"
       : response.body == "Success"
           ? "Successfully registered !"
           : "Something went wrong :(";
+
+  }else{
+    msgt = 'Enter valid input';
+    
+  }
+
 
   Fluttertoast.showToast(
       msg: msgt,
@@ -30,7 +39,7 @@ void regAsStud(ip, un, pw, cb) async {
       textColor: Colors.white,
       fontSize: 16.0);
 
-  if (response.body == "Success") cb();
+  if (msgt == "Successfully registered !") cb();
 }
 
 class Student extends StatefulWidget {

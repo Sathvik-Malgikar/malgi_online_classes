@@ -6,12 +6,50 @@ import 'package:flutter/material.dart';
 import 'reg.dart';
 import 'student.dart';
 import 'teacher.dart';
+import "package:http/http.dart" as http;
 
-void main() async {
+
+void main() {
   String adr = "https://malgi-online-classes.onrender.com/";
-
-  runApp(MyApp(ip: adr));
+  http.get(Uri.parse(adr));
+  runApp(
+    RestartWidget(
+      child: MyApp(ip: adr),
+    ),
+  );
 }
+
+class RestartWidget extends StatefulWidget {
+  RestartWidget({required this.child});
+
+  final Widget child;
+
+  static void restartApp(BuildContext context) {
+    context.findAncestorStateOfType<_RestartWidgetState>()?.restartApp();
+  }
+
+  @override
+  _RestartWidgetState createState() => _RestartWidgetState();
+}
+
+class _RestartWidgetState extends State<RestartWidget> {
+  Key key = UniqueKey();
+
+  void restartApp() {
+    setState(() {
+      key = UniqueKey();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return KeyedSubtree(
+      key: key,
+      child: widget.child,
+    );
+  }
+}
+
 
 class MyApp extends StatefulWidget {
   MyApp({required this.ip, super.key});
