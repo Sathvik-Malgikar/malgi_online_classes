@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import json
 
-engine = create_engine('sqlite:///malgionlineclasses.db',echo=False)
+engine = create_engine('postgresql://sathvik:dQequMmP7GfAP8GqiMMCq10dzVnc8Xeu@dpg-cg7ctqt269v5l6127fbg-a.oregon-postgres.render.com/malgionlineclasses',echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
 
